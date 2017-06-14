@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title> Homepage </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+table, th, td{
+        border: 1px solid black;
+        }
+</style>
+
+<body>
+<!-- Navbar (de nagivatiebalk aan de bovenkant van de site) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
+      <a href="http://cytosine.nl/~owe4_bi1a_2/Sven/Homepage.html#home" class="w3-bar-item w3-button"><b>L</b>ox 'n <b>K</b>eys</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#SearchTool" class="w3-bar-item w3-button">SearchTool</a>
+      <a href="#http://cytosine.nl/~owe4_bi1a_2/Sven/Homepage.html#about" class="w3-bar-item w3-button">About</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1900px;" id="home">
+  <img src="http://orig03.deviantart.net/da96/f/2015/170/3/0/dwarf_mine_d1080p_by_bossbecher-d8xwz10.png" alt="Textmining" width="1900" height="500" style="opacity: 0.85">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Lox 'n Keys - Textmining   Application</b></span> </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Searchtool Section  (met uitleg over de tool)-->
+  <div class="w3-container w3-padding-32" id="SearchTool">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Search Tool</h3>
+    <p> Welcome to the Search Tool. With this tool you can search our database for papers related to your search. <br>
+      You can search on the following subjects: Title of the paper, author, year of publication, organism or search for a related keyword.
+      <br><hr>
+    Please enter your search: <br>
+      <form action="/table" method="post">
+          <input type="text" name="searchword">
+          <input type="submit" value="Search">
+      </form>
+
+    </p>
+  </div>
+
+
+<!--Hier wordt de tabel gegenereerd door middel van Flask. De tabel wordt automatisch gevuld door een for loop --> 
+<table >
+    <tr>
+        <th>PubmedID</th>
+        <th>Titel</th>
+        <th>Publicatiedatum</th>
+        <th>Auteurs</th>
+        <th>Keywords</th>
+    </tr>
+
+<!-- For loop om de tabeldata in de tabel te zetten. -->
+    {% for row in tabledata %}
+        <tr>
+        <td>          {{ row[0][0] }}        </td>
+        <td>          {{ row[0][1] }}        </td>
+        <td>          {{ row[0][2] }}        </td>
+        <td>          {{ row[1] }}           </td>
+        <td>          {{ row[2] }}           </td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+ </div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p> &copy 2017 Lox 'n Keys. All Rights Reserved.</p>
+</footer>
+
+
+</body>
+</html>

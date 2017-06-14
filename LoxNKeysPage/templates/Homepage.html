@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<title> Homepage </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<!-- Navbar (de nagivatiebalk aan de bovenkant van de site) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
+      <a href="http://cytosine.nl/~owe4_bi1a_2/Sven/Homepage.html#home" class="w3-bar-item w3-button"><b>L</b>ox 'n <b>K</b>eys</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="http://cytosine.nl/~owe4_bi1a_2/Sven/Resultpage.html#SearchTool" class="w3-bar-item w3-button">SearchTool</a>
+      <a href="http://cytosine.nl/~owe4_bi1a_2/Sven/Homepage.html#about" class="w3-bar-item w3-button">About</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1900px;" id="home">
+  <img src="http://orig03.deviantart.net/da96/f/2015/170/3/0/dwarf_mine_d1080p_by_bossbecher-d8xwz10.png" alt="Textmining" width="1900" height="500" style="opacity: 0.85">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Lox 'n Keys - Textmining   Application</b></span> </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Searchtool Section (uitleg over de tool, invoer voor keyword en zoekknop-->
+  <div class="w3-container w3-padding-32" id="SearchTool">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Search Tool</h3>
+    <p> Welcome to the Search Tool. With this tool you can search our database for papers related to your search. <br>
+      You can search on the following subjects: Title of the paper, author, year of publication, organism or search for a related keyword.
+      <br><hr>
+    Please enter your search: <br>
+      <form action="/table" method="post">
+          <input type="text" name="searchword">
+          <input type="submit" value="Search"
+      </form>
+    <form action="http://cytosine.nl/~owe4_bi1a_2/Sven/Resultpage.html">
+        <input type="submit" value="Search" /> 
+    </form> 
+    
+    <hr><br>
+    </p>
+  </div>
+
+
+<!-- Graph section -->
+<script src="https://cdn.zoomcharts-cloud.com/1/stable/zoomcharts.js"></script>
+<div id="Grafiek"></div>
+
+<script>    
+        var t = new NetChart({
+        container: document.getElementById("demo"),
+        area: { height: 100% },
+        data: { url: "https://zoomcharts.com/dvsl/data/net-chart/friend-net.json" },
+        navigation:{initialNodes:["m-1"], mode:"focusnodes"},
+        style:{
+            node:{imageCropping: true},
+            nodeStyleFunction: nodeStyle,
+            linkStyleFunction: linkStyle
+        }
+    });
+
+    function nodeStyle(node){
+        node.label = node.data.name;
+        if (node.id[0] === "m")
+            node.cursor = "help";
+        else
+            node.cursor = "crosshair";
+    }
+
+    function linkStyle(link){
+        
+</script>
+
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32" id="about">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+    <p>The HAN BioCentre is preforming a research on the lipoxygenase enzyme (LOX). <br>
+        There are a lot of papers writen on this subject and reading them would take ages.<br>
+        So the BioCentre wants an application made to analyse all these papers and have a search tool to show only the relevant papers.
+        <br>We are a group of Bioinformatics students studying at the HAN in Nijmegen. <br>
+        Our group
+    </p>
+  </div>
+
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="https://www.1limburg.nl/sites/default/files/public/styles/article-detail/public/sjorsrap.jpg?itok=GoBsmXb7" alt="Sjors" height="150" width="250" />
+      <h3>Sjors Bongers</h3>
+      <p class="w3-opacity">Dat Boi</p>
+      <p>Sjors Bongers is Crazy!</p>
+
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="http://www.janvis.nl/wp-content/uploads/2012/04/ernst-en-bobbie1.jpg" alt="Ernst" height="150" width="250" />
+      <h3>Ernst Hamer</h3>
+      <p class="w3-opacity">Dat Boi</p>
+      <p>Ernst Hamer is Crazy!</p>
+
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="http://farm3.staticflickr.com/2749/4478007023_eb9a83c10a_o.jpg" alt="Ronald" height="150" width="250" />
+      <h3>Ronald van den Hurk</h3>
+      <p class="w3-opacity">CEO, HTML EXPERT & BLESSED</p>
+      <p>Ronald van den Hurk is Crazy!</p>
+
+    </div>
+
+  </div>
+
+
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p> &copy 2017 Lox 'n Keys. All Rights Reserved.</a></p>
+</footer>
+
+
+</body>
+</html>
